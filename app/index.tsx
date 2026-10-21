@@ -1,12 +1,8 @@
-import { useAuth } from "@clerk/clerk-expo";
 import { Redirect } from "expo-router";
 
 const Page = () => {
-  const { isSignedIn } = useAuth();
-
-  if (isSignedIn) return <Redirect href="/(root)/(tabs)/home" />;
-
-  return <Redirect href="/(auth)/welcome" />;
+  // Entra diretamente no ecrã principal para poderes testar a app
+  return <Redirect href="/(root)/(tabs)/home" />;
 };
 
 export default Page;
