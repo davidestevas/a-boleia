@@ -1,5 +1,13 @@
 import { TextInputProps, TouchableOpacityProps } from "react-native";
 
+export interface UserVehicle {
+  id: string;
+  model: string;
+  licensePlate: string;
+  transmission: "Manual" | "Automático";
+  trunkReady: boolean; // Confirmação de mala livre para a mota dobrável
+}
+
 declare interface Driver {
   id: number;
   first_name: string;
@@ -10,14 +18,16 @@ declare interface Driver {
   rating: number;
 }
 
-declare interface MarkerData {
+export interface MarkerData {
   latitude: number;
   longitude: number;
   id: number;
   title: string;
   profile_image_url: string;
-  car_image_url: string;
-  car_seats: number;
+  car_image_url: string; // Vamos usar para a imagem da mota dobrável
+  car_seats: number;     // Mantemos por compatibilidade ou usamos para o peso da mota (kg)
+  scooter_model?: string;
+  transmission_skill?: string;
   rating: number;
   first_name: string;
   last_name: string;
@@ -97,13 +107,14 @@ declare interface PaymentProps {
   rideTime: number;
 }
 
-declare interface LocationStore {
+export interface LocationStore {
   userLatitude: number | null;
   userLongitude: number | null;
   userAddress: string | null;
   destinationLatitude: number | null;
   destinationLongitude: number | null;
   destinationAddress: string | null;
+  userVehicle: UserVehicle; // NOVO: Carro do cliente
   setUserLocation: ({
     latitude,
     longitude,
@@ -122,6 +133,7 @@ declare interface LocationStore {
     longitude: number;
     address: string;
   }) => void;
+  setUserVehicle: (vehicle: UserVehicle) => void; // NOVO
 }
 
 declare interface DriverStore {

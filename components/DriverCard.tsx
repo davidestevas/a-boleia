@@ -49,7 +49,9 @@ const DriverCard = ({ item, selected, setSelected }: DriverCardProps) => {
           </Text>
 
           <Text className="text-sm font-JakartaRegular text-general-800">
-            {item.car_seats} seats
+            <Text className="text-sm font-JakartaRegular text-general-800">
+              🛵 {item.scooter_model || "Mota Dobrável (Na mala)"} • Caixa Manual/Auto
+            </Text>
           </Text>
         </View>
       </View>

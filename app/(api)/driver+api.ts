@@ -54,3 +54,4 @@ export async function GET() {
     return Response.json({ error: "Erro interno" }, { status: 500 });
   }
 }
+scooter_model: "Mota Elétrica Dobrável (18kg)"
